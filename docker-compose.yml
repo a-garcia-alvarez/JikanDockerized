@@ -1,7 +1,6 @@
-version: "3.4"
+version: "2"
 
 services:
-
   jikan-rest-api:
     build:
       context: jikan
@@ -12,8 +11,8 @@ services:
       - "9001:80"
     networks:
       - default
-    restart: always
+    restart: unless-stopped
 
   jikan-redis:
     image: redis
-    restart: always
+    restart: unless-stopped
