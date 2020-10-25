@@ -15,6 +15,9 @@ RUN apt-get update && apt-get install -y \
   && cp .env.dist .env \
   && sed -i "s/GITHUB_REPORTING=.*/GITHUB_REPORTING=false/" .env \
   && sed -i "s/REDIS_HOST=.*/REDIS_HOST=jikan-redis/" .env \
+  && sed -i "s/CACHE_DEFAULT_EXPIRE=.*/CACHE_DEFAULT_EXPIRE=3600/" .env \
+  && sed -i "s/CACHE_404_EXPIRE=.*/CACHE_404_EXPIRE=3600/" .env \
+  && sed -i "s/CACHE_SEARCH_EXPIRE=.*/CACHE_SEARCH_EXPIRE=3600/" .env \
   && composer install --prefer-dist --no-progress --classmap-authoritative  --no-interaction \
   && composer update jikan-me/jikan
 
